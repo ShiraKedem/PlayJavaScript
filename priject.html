@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styleProject.css" />
+    <title>
+    </title>
+  </head>
+
+  <body>
+    <audio
+      id="backgroundMusic"
+      src="תמונות/Happy and Fun Pop Background Music For Videos.mp3"
+      autoplay
+      loop
+    ></audio>
+
+    <div id="all">
+      <div id="head">
+        <div id="containtimer">
+          <div id="score">
+            <h1 id="h1">score:</h1>
+            <h1 id="grade">0</h1>
+          </div>
+          <div class="timer animatable">
+            <svg>
+              <circle cx="50%" cy="50%" r="90" />
+              <circle cx="50%" cy="50%" r="90" pathLength="1" />
+              <text x="100" y="100" text-anchor="middle">
+                <tspan id="timeLeft"></tspan>
+              </text>
+              <text x="100" y="120" text-anchor="middle" id="second">
+                seconds
+              </text>
+            </svg>
+          </div>
+        </div>
+        <div id="rand"></div>
+        <div id="star">
+          <img src="תמונות/star.png" id="star1" />
+          <img src="תמונות/star.png" id="star2" />
+          <img src="תמונות/star.png" id="star3" />
+        </div>
+      </div>
+      <div id="board"></div>
+      <div id="timer"></div>
+      <div id="results">
+        <button onclick="Again()">Play Again</button>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        var audio = document.getElementById("backgroundMusic");
+        audio.play();
+      });
+      let timeLeft = 60;
+      let timer = document.getElementById("timeLeft");
+
+      function isTimeLeft() {
+        return timeLeft > -1;
+      }
+
+      function runTimer(timerElement) {
+        const timerCircle = timerElement.querySelector("svg > circle + circle");
+        timerElement.classList.add("animatable");
+        timerCircle.style.strokeDashoffset = 1;
+
+        let countdownTimer = setInterval(function () {
+          if (isTimeLeft()) {
+            const timeRemaining = timeLeft--;
+            const normalizedTime = (60 - timeRemaining) / 60;
+
+            timerCircle.style.strokeDashoffset = normalizedTime;
+            timer.innerHTML = timeRemaining;
+          } else {
+            clearInterval(countdownTimer);
+            timerElement.classList.remove("animatable");
+          }
+        }, 1000);
+      }
+
+      runTimer(document.querySelector(".timer"));
+
+      let c = 0,
+        cnt = 0,
+        k = 4;
+
+      start(k);
+
+      function start(k) {
+        let randNum = Math.floor(Math.random() * (k * 10)) + 1;
+        document.getElementById("rand").innerHTML = randNum;
+        let r1 = Math.floor(Math.random() * k) + 1;
+        let r2 = Math.floor(Math.random() * k) + 1;
+        let numid;
+        let board = document.getElementById("board");
+
+        for (let i = k; i >= 1; i--) {
+          let newRow = document.createElement("div");
+          newRow.classList.add("row");
+          board.appendChild(newRow);
+
+          for (let j = k; j >= 1; j--) {
+            let numbers = i * k - j + 1;
+            let span = document.createElement("span");
+            if (k == 4) span.classList.add("square");
+            if (k == 6) span.classList.add("square2");
+            if (k == 8) span.classList.add("square3");
+
+            span.setAttribute("id", "a" + numbers);
+            newRow.appendChild(span);
+
+            if (k == 8) {
+              document.getElementById("a" + numbers).style.fontSize = "2rem";
+              document.getElementById("a" + numbers).style.width = "6vw";
+              document.getElementById("a" + numbers).style.height = "7vh";
+            }
+
+            randNumbers = Math.floor(Math.random() * (k * 10)) + 1;
+            while (randNumbers == randNum) {
+              randNumbers = Math.floor(Math.random() * (k * 10)) + 1;
+            }
+            span.textContent = randNumbers;
+            if (i == r1 && j == r2) {
+              span.textContent = randNum;
+              numid = numbers;
+              console.log(numid);
+            }
+
+            let num = i * k - j + 1;
+            document
+              .getElementById("a" + num)
+              .addEventListener("click", check2);
+            function check2() {
+              document.getElementById("a" + num).textContent = "🙁";
+            }
+          }
+        }
+        let x;
+        let y = localStorage.getItem("name");
+
+        document.getElementById("h1").innerHTML = y;
+
+        document.getElementById("a" + numid).addEventListener("click", check);
+
+        function check() {
+          x = document.getElementById("grade");
+
+          x.setAttribute("class", "grade");
+          cnt += 100;
+
+          document.getElementById("grade").innerHTML = "+" + cnt;
+          document.getElementById("board").innerHTML = "";
+
+          if (cnt == 300) {
+            k = 6;
+            x.classList.remove("grade");
+            document.getElementById("star1").src = "תמונות/star_477406.png";
+          }
+          if (cnt == 600) {
+            x.classList.remove("grade");
+            k = 8;
+            document.getElementById("star2").src = "תמונות/star_477406.png";
+          }
+
+          if (cnt == 900) {
+            x.classList.remove("grade");
+            document.getElementById("star3").src = "תמונות/star_477406.png";
+            k = 0;
+            document.getElementById("rand").innerHTML = " ";
+            const myTimeout = setTimeout(win, 1000);
+          }
+
+          start(k);
+
+          localStorage.setItem(
+            "record",
+            document.getElementById("grade").innerHTML
+          );
+          function win() {
+            window.location.href = "win.html";
+
+            clearTimeout(myTimeout);
+          }
+        }
+      }
+
+      function Again() {
+        window.location.href = "priject.html";
+      }
+    </script>
+  </body>
+</html>

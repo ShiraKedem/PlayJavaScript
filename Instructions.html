@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    @keyframes lights {
+      0% {
+        color: hsl(230, 40%, 80%);
+        text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.2),
+          0 0 0.125em hsla(320, 100%, 60%, 0.3),
+          -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+          1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+      }
+
+      30% {
+        color: hsl(230, 80%, 90%);
+        text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
+          0 0 0.125em hsla(320, 100%, 60%, 0.5),
+          -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+          0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+      }
+
+      40% {
+        color: hsl(230, 100%, 95%);
+        text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
+          0 0 0.125em hsla(320, 100%, 90%, 0.5),
+          -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+          0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+      }
+
+      70% {
+        color: hsl(230, 80%, 90%);
+        text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
+          0 0 0.125em hsla(320, 100%, 60%, 0.5),
+          0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+          -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+      }
+
+      100% {
+        color: hsl(230, 40%, 80%);
+        text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.2),
+          0 0 0.125em hsla(320, 100%, 60%, 0.3),
+          1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+          -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+      }
+    }
+
+    body {
+      height: 100vh;
+      width: 100vw;
+      background-image: url(תמונות/רקע.jpeg);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 1%;
+      font-size: 3.5rem;
+      font-weight: 300;
+      animation: lights 5s 750ms linear infinite;
+    }
+    #instructions {
+      letter-spacing: 1px;
+      margin: 1%;
+      font-size: 1.5rem;
+      font-weight: 250;
+      animation: lights 5s 750ms linear infinite;
+      font-family: Comic Sans MS;
+      text-shadow: 0 0 2px #ff4af6a8, 0 0 5px #88379ca8, 0 0 3px #ef00e3a8,
+        0 0 15px #e27bdda8, 0 0 2px #e7e7e7, 2px 2px 2px #54ccdb;
+      color: #e9cbf5;
+      margin-left: 25%;
+      margin-right: 25%;
+    }
+    button {
+      background-image: linear-gradient(
+        to left,
+        rgba(234, 67, 153, 0.75) 0%,
+        rgba(98, 103, 236, 0.86) 100%
+      );
+      box-shadow: 0 9px 25px -5px #ac36d7;
+      font-family: "Abel", sans-serif;
+      padding: 0.5em 1.9em;
+      border-radius: 7px;
+      font-size: 1.8em;
+      cursor: pointer;
+      color: #ffffff;
+      font-size: 1.5em;
+      outline: none;
+      border: none;
+      transition: 0.3s linear;
+      margin-top: 2%;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      font-size: 20px;
+    }
+    p {
+      margin-bottom: 0%;
+      text-align: center;
+      font-weight: 700;
+      font-size: 50px;
+      font-family: Hack, sans-serif;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #ea37b4, #fff, #5eaabb);
+      letter-spacing: 5px;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-repeat: no-repeat;
+      background-size: 80%;
+      animation: shine 7s linear infinite;
+    }
+    @keyframes shine {
+      0% {
+        background-position-x: -500%;
+      }
+      100% {
+        background-position-x: 500%;
+      }
+    }
+    @keyframes wiggle {
+      0%,
+      7% {
+         transform: rotateZ(0);
+      }
+      15% {
+        transform: rotateZ(-15deg);
+      }
+      20% {
+        transform: rotateZ(10deg);
+      }
+      25% {
+        transform: rotateZ(-10deg);
+      }
+      30% {
+        transform: rotateZ(6deg);
+      }
+      35% {
+        transform: rotateZ(-4deg);
+      }
+      40%,
+      100% {
+        transform: rotateZ(0);
+      }
+    }
+
+    #t2 {
+      background-image: linear-gradient(
+        to left,
+        rgba(255, 146, 202, 0.75) 0%,
+        rgba(145, 149, 251, 0.86) 100%
+      );
+      box-shadow: 0 9px 25px -5px #df91fb;
+      font-family: "Abel", sans-serif;
+      padding: 0.5em 1.9em;
+
+      border-radius: 7px;
+      font-size: 1.4em;
+      cursor: pointer;
+      color: #ffffff;
+      font-size: 2em;
+      outline: none;
+      border: none;
+      transition: 0.3s linear;
+    }
+    @media only screen and (max-width: 835px) {
+      h2 {
+        margin-bottom: 1%;
+        font-size: 1rem;
+        font-weight: 300;
+      }
+      #instructions {
+        letter-spacing: 1px;
+        margin: 1%;
+        font-size: 1rem;
+        font-weight: 250;
+        animation: lights 5s 750ms linear infinite;
+        font-family: Comic Sans MS;
+        text-shadow: 0 0 2px #ff4af6a8, 0 0 5px #88379ca8, 0 0 3px #ef00e3a8,
+          0 0 15px #e27bdda8, 0 0 2px #e7e7e7, 2px 2px 2px #54ccdb;
+        color: #e9cbf5;
+        margin-left: 25%;
+        margin-right: 25%;
+      }
+    }
+  </style>
+  <body>
+    <p>SearchMe: <br /><a href="https://codepen.io/grohit/">the win play</a></p>
+    <div id="all">
+      <h3 id="instructions">
+        find it -it's a new game that miri and shira <br />
+        wrote it in acceleration just for you , May you have the most fun <br />
+        and enjoyment from our game, therefore choose the desired level and when
+        you enter the game you will see a number <br />
+        at the top of the page and quickly you will have to find the number
+        <br />
+        in the given matrix As fast as possible and the more you succeed, the
+        level will rise during the game, you will see a timer of the game time
+        <br />and you will have to win in that time Good luck! love you :)
+      </h3>
+      <button id="t2">Approval</button>
+    </div>
+    <script>
+      document.querySelector("#t2").addEventListener("click", m);
+      function m() {
+        window.location.href = "priject.html";
+      }
+    </script>
+  </body>
+</html>
