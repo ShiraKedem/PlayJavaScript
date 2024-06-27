@@ -1,3 +1,71 @@
+# SearchMe - A Fun Number Search Game
+
+SearchMe is an interactive and fun number search game designed to challenge your speed and accuracy in finding numbers within a matrix. The game was created using JavaScript, HTML, and CSS, and includes various animations and sounds to enhance the user experience.
+
+## Table of Contents
+
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+
+## Features
+
+- Interactive and fun gameplay
+- Multiple levels of difficulty
+- Timer to keep track of game time
+- Score tracking
+- Background music and sound effects
+- Beautiful animations and design
+
+## Technologies Used
+
+- HTML
+- CSS
+- JavaScript
+- Google Fonts
+
+## Installation
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/ShiraKedem/SearchMe.git
+    cd SearchMe
+    ```
+
+2. Open `index.html` in your favorite web browser.
+
+## Usage
+
+### Game Instructions
+
+1. Open the game by clicking on the play button.
+2. Enter your name to start playing.
+3. Find the number displayed at the top of the page in the given matrix as fast as possible.
+4. As you succeed, the level will rise.
+5. You have enough time to find the numbers.
+7. The game will track your score and display it on the screen.
+
+### HTML and CSS Structure
+
+- `index.html`: Contains the main structure of the game, including the container for the game, buttons, and forms.
+- `Instructions.html`: Contains the instructions for playing the game.
+- `priject.html`: Contains the main game logic and structure.
+- `start.css`: Contains the CSS styling for the start page.
+- `styleProject.css`: Contains the CSS styling for the game page.
+
+### JavaScript Logic
+
+
+- `record()`: Function to record the player's name and start the game.
+- `logain()`: Function to display the login container.
+- `m()`: Function to redirect to the instructions or game page.
+- `runTimer(timerElement)`: Function to start and manage the game timer.
+- `start(k)`: Function to initialize the game board and manage game levels.
+- `check()`: Function to check if the player found the correct number.
+- `Again()`: Function to restart the game.
+
+
 
 ![צילום מסך 2024-06-02 032227](https://github.com/ShiraKedem/PlayJavaScript/assets/150906665/1dfc4e9a-053b-4689-96f1-79310a965cc5)
 ![צילום מסך 2024-06-02 032248](https://github.com/ShiraKedem/PlayJavaScript/assets/150906665/525d89b2-7f51-46a6-aa2a-0d5529933492)
